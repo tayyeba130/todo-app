@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GlobalStyle from './styles';
 import Main from './components/main/Main';
 
 function App() {
-	const [theme, setTheme] = useState('light');
 	return (
 		<>
 			<Main />

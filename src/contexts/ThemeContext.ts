@@ -11,8 +11,8 @@ export type ThemeContextType = {
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-	theme: Theme.Dark,
-	setTheme: (theme) => console.warn('no theme provider'),
+	theme: Theme.Light,
+	setTheme: (theme: string) => console.warn('no theme provider'),
 });
 
 // a custom hook
