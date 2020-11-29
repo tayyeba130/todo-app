@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 const MainStyle = styled.div`
-	// position: relative;
 	.content {
 		position: absolute;
 		width: 100%;
