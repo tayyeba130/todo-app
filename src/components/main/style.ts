@@ -13,6 +13,8 @@ const MainStyle = styled.div`
 		top: 5%;
 		@media (min-width: 576px) {
 			top: 10%;
+			max-width: 540px;
+			padding: 0;
 		}
 	}
 `;
