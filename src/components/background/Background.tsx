@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useTheme, Theme } from '../../contexts/ThemeContext';
+import React, { useEffect, useState } from 'react';
+import { Theme, useTheme } from '../../contexts/ThemeContext';
+import BackgroundStyle from './style';
 
 export default function Background() {
 	const [width, setWidth] = useState(window.innerWidth);
@@ -31,6 +32,10 @@ export default function Background() {
 	};
 
 	return (
-		<img src={setImgUrl()} alt="background mountains" className="bg-img" />
+		<BackgroundStyle
+			src={setImgUrl()}
+			alt="background mountains"
+			className="bg-img"
+		/>
 	);
 }
