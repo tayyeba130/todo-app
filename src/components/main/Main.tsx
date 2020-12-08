@@ -8,7 +8,7 @@ import Todos from '../todos/Todos';
 export default function Main() {
 	const [theme, setTheme] = useState(Theme.Light);
 	return (
-		<MainStyle>
+		<MainStyle theme={theme}>
 			<ThemeContext.Provider value={{ theme, setTheme }}>
 				<Background />
 				<div className="content">

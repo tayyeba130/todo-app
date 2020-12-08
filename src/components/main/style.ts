@@ -1,6 +1,10 @@
 import styled from 'styled-components/macro';
+import { Theme } from '../../contexts/ThemeContext';
 
 const MainStyle = styled.div`
+	height: 100vh;
+	background: ${(props) =>
+		props.theme === Theme.Light ? '#FAFAFA' : '#181823'};
 	.content {
 		position: absolute;
 		width: 100%;

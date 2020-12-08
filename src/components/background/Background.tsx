@@ -5,7 +5,7 @@ import BackgroundStyle from './style';
 export default function Background() {
 	const [width, setWidth] = useState(window.innerWidth);
 	const { theme } = useTheme();
-	const breakpoint = 576;
+	const breakpoint = 768;
 
 	useEffect(() => {
 		const handleWindowResize = () => setWidth(window.innerWidth);
@@ -32,10 +32,12 @@ export default function Background() {
 	};
 
 	return (
-		<BackgroundStyle
-			src={setImgUrl()}
-			alt="background mountains"
-			className="bg-img"
-		/>
+		<BackgroundStyle>
+			<img
+				src={setImgUrl()}
+				alt="background mountains"
+				className="bg-img"
+			/>
+		</BackgroundStyle>
 	);
 }
