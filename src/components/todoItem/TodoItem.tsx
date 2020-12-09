@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuid } from 'uuid';
 import { useTheme } from '../../contexts/ThemeContext';
 import TodoItemStyle from './style';
 
@@ -10,7 +9,7 @@ interface TodoItemProps {
 export default function TodoItem({ todo }: TodoItemProps) {
 	const { theme } = useTheme();
 	return (
-		<TodoItemStyle key={uuid()} theme={theme}>
+		<TodoItemStyle key={todo.id} theme={theme}>
 			<label className={todo.complete ? 'complete' : undefined}>
 				<input type="checkbox" checked={todo.complete} />
 				{todo.complete ? (
