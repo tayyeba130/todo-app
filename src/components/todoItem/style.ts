@@ -24,6 +24,9 @@ const TodoItemStyle = styled.li`
 			margin: 0 20px;
 		}
 	}
+	label.complete {
+		text-decoration: line-through;
+	}
 	@media (min-width: 576px) {
 		height: 60px;
 	}

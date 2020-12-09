@@ -1,20 +1,17 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
-import TodoItemStyle from './style';
 import { useTheme } from '../../contexts/ThemeContext';
+import TodoItemStyle from './style';
 
 interface TodoItemProps {
-	todo: {
-		text: string;
-		complete: boolean;
-	};
+	todo: Todo;
 }
 
 export default function TodoItem({ todo }: TodoItemProps) {
 	const { theme } = useTheme();
 	return (
 		<TodoItemStyle key={uuid()} theme={theme}>
-			<label>
+			<label className={todo.complete ? 'complete' : undefined}>
 				<input type="checkbox" checked={todo.complete} />
 				{todo.complete ? (
 					<span className="circle completed">

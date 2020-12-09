@@ -5,7 +5,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 
 export default function TodoList() {
 	const { theme } = useTheme();
-	const todos = [
+	const todos: Todo[] = [
 		{ text: '10 minutes meditation', complete: false },
 		{ text: 'Read for 1 hour', complete: true },
 	];
