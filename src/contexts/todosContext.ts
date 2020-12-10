@@ -1,5 +1,11 @@
 import { createContext } from 'react';
 
-type TodosContextType = Todo[];
+type TodosContextType = {
+	state: Todo[];
+	dispatch: React.Dispatch<Action>;
+};
 
-export const TodosContext = createContext<TodosContextType>([]);
+export const TodosContext = createContext<TodosContextType>({
+	state: [],
+	dispatch: () => {},
+});
