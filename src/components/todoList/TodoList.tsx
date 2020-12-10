@@ -13,7 +13,7 @@ export default function TodoList() {
 	return (
 		<TodoListStyle theme={theme}>
 			{todos.map((todo) => (
-				<TodoItem todo={todo} />
+				<TodoItem todo={todo} key={todo.id} />
 			))}
 		</TodoListStyle>
 	);

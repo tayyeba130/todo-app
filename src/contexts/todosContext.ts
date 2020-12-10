@@ -1,11 +1,13 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 type TodosContextType = {
-	state: Todo[];
+	todos: Todo[];
 	dispatch: React.Dispatch<Action>;
 };
 
 export const TodosContext = createContext<TodosContextType>({
-	state: [],
+	todos: [],
 	dispatch: () => {},
 });
+
+export const useTodos = () => useContext(TodosContext);

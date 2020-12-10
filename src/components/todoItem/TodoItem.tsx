@@ -9,7 +9,7 @@ interface TodoItemProps {
 export default function TodoItem({ todo }: TodoItemProps) {
 	const { theme } = useTheme();
 	return (
-		<TodoItemStyle key={todo.id} theme={theme}>
+		<TodoItemStyle theme={theme}>
 			<label className={todo.complete ? 'complete' : undefined}>
 				<input type="checkbox" checked={todo.complete} />
 				{todo.complete ? (

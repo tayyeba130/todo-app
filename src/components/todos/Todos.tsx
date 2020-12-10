@@ -6,9 +6,9 @@ import { TodosContext } from '../../contexts/TodosContext';
 
 export default function Todos() {
 	const initialState: Todo[] = [];
-	const [state, dispatch] = useReducer(todosReducer, initialState);
+	const [todos, dispatch] = useReducer(todosReducer, initialState);
 	return (
-		<TodosContext.Provider value={{ state, dispatch }}>
+		<TodosContext.Provider value={{ todos, dispatch }}>
 			<div>
 				<AddTodo />
 				<TodoList />
