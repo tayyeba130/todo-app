@@ -10,9 +10,21 @@ export default function todosReducer(todos: Todo[], action: Action) {
 		case 'delete':
 			return todos.filter((todo) => todo.id === action.payload);
 		case 'toggle': {
-			let todo = todos.find((todo) => todo.id === action.payload)!;
-			todo.complete = !todo.complete;
-			return [...todos, todo];
+			const draft = todos.map((todo) => {
+				if (todo.id === action.payload) {
+					return {
+						...todo,
+						complete: !todo.complete,
+					};
+				} else {
+					return todo;
+				}
+			});
+			return [...draft];
+		}
+		case 'clearCompleted': {
+			let draft = todos.filter((todo) => todo.complete === false);
+			return [...draft];
 		}
 		default:
 			return todos;

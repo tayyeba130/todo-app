@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useTodos } from '../../contexts/TodosContext';
 import TodoItemStyle from './style';
 
 interface TodoItemProps {
@@ -8,10 +9,17 @@ interface TodoItemProps {
 
 export default function TodoItem({ todo }: TodoItemProps) {
 	const { theme } = useTheme();
+	const { dispatch } = useTodos();
 	return (
 		<TodoItemStyle theme={theme}>
 			<label className={todo.complete ? 'complete' : undefined}>
-				<input type="checkbox" checked={todo.complete} />
+				<input
+					type="checkbox"
+					checked={todo.complete}
+					onChange={() =>
+						dispatch({ type: 'toggle', payload: todo.id })
+					}
+				/>
 				{todo.complete ? (
 					<span className="circle completed">
 						<img
