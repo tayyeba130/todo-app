@@ -1,18 +1,31 @@
-import React from 'react';
-import { v4 as uuid } from 'uuid';
+import React, { useEffect, useState } from 'react';
 import TodoItem from '../todoItem/TodoItem';
 import TodoListStyle from './style';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useTodos, Filter } from '../../contexts/TodosContext';
 
 export default function TodoList() {
 	const { theme } = useTheme();
-	const todos: Todo[] = [
-		{ text: '10 minutes meditation', complete: false, id: uuid() },
-		{ text: 'Read for 1 hour', complete: true, id: uuid() },
-	];
+	const { todos, filter } = useTodos();
+	const [filteredTodos, setFilteredTodos] = useState<Todo[]>([]);
+
+	useEffect(() => {
+		if (filter === Filter.All) {
+			setFilteredTodos(todos);
+		} else if (filter === Filter.Completed) {
+			const draft = todos.filter((todo) => todo.complete === true);
+			setFilteredTodos(draft);
+		} else if (filter === Filter.Active) {
+			const draft = todos.filter((todo) => todo.complete === false);
+			setFilteredTodos(draft);
+		} else {
+			setFilteredTodos(todos);
+		}
+	}, [filter, todos]);
+
 	return (
 		<TodoListStyle theme={theme}>
-			{todos.map((todo) => (
+			{filteredTodos.map((todo) => (
 				<TodoItem todo={todo} key={todo.id} />
 			))}
 		</TodoListStyle>

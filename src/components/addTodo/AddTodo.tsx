@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddTodoStyle from './style';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useTodos } from '../../contexts/TodosContext';
 
 const AddTodo = () => {
 	const { theme } = useTheme();
-	const { todos } = useTodos();
-	console.log(todos);
+	const { dispatch } = useTodos();
+	const [todo, setTodo] = useState('');
+	const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTodo(event.target.value);
+	};
+
+	const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+		if (event.key === 'Enter') {
+			dispatch({ type: 'add', payload: todo });
+			setTodo('');
+		}
+	};
+
 	return (
 		<AddTodoStyle theme={theme}>
 			<span />
-			<input type="text" placeholder="Create a new todo..." />
+			<input
+				type="text"
+				placeholder="Create a new todo..."
+				onChange={changeHandler}
+				onKeyDown={keyDownHandler}
+				value={todo}
+			/>
 		</AddTodoStyle>
 	);
 };
