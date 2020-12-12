@@ -6,6 +6,10 @@ const FiltersStyle = styled.div`
 	grid-template-columns: auto 1fr;
 	grid-row-gap: 10px;
 	position: relative;
+	@media (min-width: 576px) {
+		grid-template-columns: auto 1fr auto;
+		grid-template-rows: 50px;
+	}
 	> div {
 		display: flex;
 		justify-content: center;
@@ -15,6 +19,7 @@ const FiltersStyle = styled.div`
 	button {
 		all: unset;
 		cursor: pointer;
+		z-index: 1;
 	}
 	.items-left {
 		border-bottom-left-radius: 5px;
@@ -27,7 +32,12 @@ const FiltersStyle = styled.div`
 		border-radius: 5px;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		button {
-			margin: 0 5px;
+			margin: 0 10px;
+		}
+		@media (min-width: 576px) {
+			grid-row: 1;
+			grid-column: 2 / 3;
+			box-shadow: none;
 		}
 	}
 	.clear-completed {
