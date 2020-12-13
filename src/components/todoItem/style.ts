@@ -12,6 +12,8 @@ const TodoItemStyle = styled.li`
 	label {
 		color: ${(props) =>
 			props.theme === Theme.Light ? '#4d4e59' : '#bebebe'};
+		display: flex;
+		align-items: flex-end;
 		input {
 			display: none;
 		}
@@ -22,6 +24,18 @@ const TodoItemStyle = styled.li`
 			border-radius: 50%;
 			display: inline-block;
 			margin: 0 20px;
+		}
+		span.circle.completed {
+			background: rgb(87, 221, 255);
+			background-image: linear-gradient(
+				to right bottom,
+				#47daff,
+				#7b8bff,
+				#c058f3
+			);
+			border: 0;
+			text-align: center;
+			line-height: 20px;
 		}
 	}
 	label.complete {
