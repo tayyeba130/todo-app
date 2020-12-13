@@ -10,30 +10,32 @@ const AddTodoStyle = styled.div`
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
+	padding: 0 20px;
 	@media (min-width: 576px) {
 		max-width: 540px;
 		height: 65px;
 	}
 	span {
 		width: 20px;
+		min-width: 20px;
 		height: 20px;
 		border-radius: 50%;
 		border: 1px solid #bababa;
 		display: inline-block;
-		margin: 0 10px 0 20px;
+		margin-right: 10px;
 	}
 	input {
 		background: ${(props) =>
 			props.theme === Theme.Light ? '#fff' : '#25283c'};
 		font-size: 14px;
 		outline: 0;
-		padding: 10px 10px 10px 0;
-		height: 100%;
+		padding: 0;
 		width: 100%;
 		font-family: 'Josefin Sans', sans-serif;
 		border: 0;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+		margin-bottom: -4px;
 		@media (min-width: 576px) {
 			font-size: 18px;
 		}

@@ -1,18 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Filter, useTodos } from '../../contexts/TodosContext';
 import FiltersStyle from './style';
-import { useTodos, Filter } from '../../contexts/TodosContext';
 
 export default function Filters() {
-	const { setFilter, dispatch } = useTodos();
+	const { filter, setFilter, todos, dispatch } = useTodos();
+	const [itemsLeft, setItemsLeft] = useState(0);
+
+	useEffect(() => {
+		const draftItemsLeft = todos.reduce(
+			(total, currentTodo) =>
+				currentTodo.complete === false ? (total = total + 1) : total,
+			0
+		);
+		setItemsLeft(draftItemsLeft);
+	}, [todos]);
+
 	return (
 		<FiltersStyle>
 			<div className="items-left">
-				<span>5 items left</span>
+				<span>{`${itemsLeft} items left`}</span>
 			</div>
 			<div className="filters">
-				<button onClick={() => setFilter(Filter.All)}>All</button>
-				<button onClick={() => setFilter(Filter.Active)}>Active</button>
-				<button onClick={() => setFilter(Filter.Completed)}>
+				<button
+					className={filter === Filter.All ? 'selected' : undefined}
+					onClick={() => setFilter(Filter.All)}
+				>
+					All
+				</button>
+				<button
+					className={
+						filter === Filter.Active ? 'selected' : undefined
+					}
+					onClick={() => setFilter(Filter.Active)}
+				>
+					Active
+				</button>
+				<button
+					className={
+						filter === Filter.Completed ? 'selected' : undefined
+					}
+					onClick={() => setFilter(Filter.Completed)}
+				>
 					Completed
 				</button>
 			</div>

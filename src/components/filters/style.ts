@@ -6,15 +6,17 @@ const FiltersStyle = styled.div`
 	grid-template-columns: auto 1fr;
 	grid-row-gap: 10px;
 	position: relative;
+	background-color: #fff;
 	@media (min-width: 576px) {
 		grid-template-columns: auto 1fr auto;
 		grid-template-rows: 50px;
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
 	}
 	> div {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: #fff;
 	}
 	button {
 		all: unset;
@@ -34,10 +36,14 @@ const FiltersStyle = styled.div`
 		button {
 			margin: 0 10px;
 		}
+		button.selected {
+			color: #3a7bfd;
+		}
 		@media (min-width: 576px) {
 			grid-row: 1;
 			grid-column: 2 / 3;
 			box-shadow: none;
+			border-radius: 0;
 		}
 	}
 	.clear-completed {
