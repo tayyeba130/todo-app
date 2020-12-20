@@ -7,6 +7,7 @@ const FiltersStyle = styled.div`
 	grid-row-gap: 10px;
 	position: relative;
 	background-color: #fff;
+	color: var(--light-500);
 	@media (min-width: 576px) {
 		grid-template-columns: auto 1fr auto;
 		grid-template-rows: 50px;
@@ -35,9 +36,10 @@ const FiltersStyle = styled.div`
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		button {
 			margin: 0 10px;
+			color: var(--light-600);
 		}
 		button.selected {
-			color: #3a7bfd;
+			color: var(--bright-blue);
 		}
 		@media (min-width: 576px) {
 			grid-row: 1;

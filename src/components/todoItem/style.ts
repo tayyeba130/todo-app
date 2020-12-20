@@ -11,7 +11,7 @@ const TodoItemStyle = styled.li`
 	align-items: center;
 	label {
 		color: ${(props) =>
-			props.theme === Theme.Light ? '#4d4e59' : '#bebebe'};
+			props.theme === Theme.Light ? 'var(--light-600)' : '#bebebe'};
 		display: flex;
 		align-items: flex-end;
 		input {
@@ -40,6 +40,7 @@ const TodoItemStyle = styled.li`
 	}
 	label.complete {
 		text-decoration: line-through;
+		color: var(--light-500);
 	}
 	@media (min-width: 576px) {
 		height: 60px;

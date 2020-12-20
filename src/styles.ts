@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+    :root {
+        --bright-blue: hsl(220, 98%, 61%);
+        --light-300: hsl(0, 0%, 98%);
+        --light-400: hsl(236, 33%, 92%);
+        --light-500: hsl(233, 11%, 84%);
+        --light-600: hsl(236, 9%, 61%);
+        --light-700: hsl(235, 19%, 35%);
+    }
     *,
     *::before,
     *::after {
