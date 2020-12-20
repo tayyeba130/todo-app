@@ -36,6 +36,10 @@ const AddTodoStyle = styled.div`
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
 		margin-bottom: -4px;
+		color: ${(props) =>
+			props.theme === Theme.Light
+				? 'var(--bright-blue-500)'
+				: 'var(--light-500)'};
 		@media (min-width: 576px) {
 			font-size: 18px;
 		}
