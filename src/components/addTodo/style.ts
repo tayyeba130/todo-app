@@ -21,6 +21,10 @@ const AddTodoStyle = styled.div`
 		height: 20px;
 		border-radius: 50%;
 		border: 1px solid var(--light-400);
+		border-color: ${(props) =>
+			props.theme === Theme.Light
+				? 'var(--light-400)'
+				: 'var(--dark-600)'};
 		display: inline-block;
 		margin-right: 10px;
 	}

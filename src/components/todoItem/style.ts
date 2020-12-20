@@ -40,6 +40,10 @@ const TodoItemStyle = styled.li`
 			background-image: none;
 			background-color: transparent;
 			border: 1px solid var(--light-400);
+			border-color: ${(props) =>
+				props.theme === Theme.Light
+					? 'var(--light-400)'
+					: 'var(--dark-600)'};
 			&:hover {
 				background-image: linear-gradient(
 					to right bottom,
@@ -59,8 +63,8 @@ const TodoItemStyle = styled.li`
 					display: block;
 					background-color: ${(props) =>
 						props.theme === Theme.Light
-							? 'var(--light-600)'
-							: '#bebebe'};
+							? '#fff'
+							: 'var(--bright-blue-500)'};
 				}
 			}
 		}
