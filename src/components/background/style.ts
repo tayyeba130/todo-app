@@ -8,6 +8,10 @@ const BackgroundStyle = styled.div`
 		top: 0;
 		right: 0;
 		left: 0;
+		height: auto;
+		@media (min-width: 576px) {
+			min-height: 300px;
+		}
 	}
 `;
 
