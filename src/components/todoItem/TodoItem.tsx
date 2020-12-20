@@ -21,7 +21,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
 					}
 				/>
 				{todo.complete ? (
-					<span className="circle completed">
+					<span className="circle">
 						<img
 							src={require('../../images/icon-check.svg').default}
 							alt="completed icon"

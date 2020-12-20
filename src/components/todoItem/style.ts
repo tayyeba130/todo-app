@@ -9,6 +9,7 @@ const TodoItemStyle = styled.li`
 	list-style-type: none;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 	label {
 		color: ${(props) =>
 			props.theme === Theme.Light ? 'var(--light-600)' : '#bebebe'};
@@ -20,12 +21,10 @@ const TodoItemStyle = styled.li`
 		span.circle {
 			width: 20px;
 			height: 20px;
-			border: 1px solid #33394b;
 			border-radius: 50%;
 			display: inline-block;
 			margin: 0 20px;
-		}
-		span.circle.completed {
+			cursor: pointer;
 			background: rgb(87, 221, 255);
 			background-image: linear-gradient(
 				to right bottom,
@@ -36,6 +35,34 @@ const TodoItemStyle = styled.li`
 			border: 0;
 			text-align: center;
 			line-height: 20px;
+		}
+		span.circle.not-completed {
+			background-image: none;
+			background-color: transparent;
+			border: 1px solid var(--light-400);
+			&:hover {
+				background-image: linear-gradient(
+					to right bottom,
+					#47daff,
+					#7b8bff,
+					#c058f3
+				);
+				border: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				&::before {
+					content: '';
+					width: calc(100% - 2px);
+					height: calc(100% - 2px);
+					border-radius: 50%;
+					display: block;
+					background-color: ${(props) =>
+						props.theme === Theme.Light
+							? 'var(--light-600)'
+							: '#bebebe'};
+				}
+			}
 		}
 	}
 	label.complete {

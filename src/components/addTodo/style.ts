@@ -3,7 +3,7 @@ import { Theme } from '../../contexts/ThemeContext';
 
 const AddTodoStyle = styled.div`
 	background: ${(props) =>
-		props.theme === Theme.Light ? '#fff' : '#25283c'};
+		props.theme === Theme.Light ? '#fff' : 'var(--bright-blue-500)'};
 	width: 100%;
 	max-width: 325px;
 	height: 50px;
@@ -20,7 +20,7 @@ const AddTodoStyle = styled.div`
 		min-width: 20px;
 		height: 20px;
 		border-radius: 50%;
-		border: 1px solid #bababa;
+		border: 1px solid var(--light-400);
 		display: inline-block;
 		margin-right: 10px;
 	}
