@@ -76,6 +76,20 @@ const TodoItemStyle = styled.li`
 	@media (min-width: 576px) {
 		height: 60px;
 	}
+	&.item-enter {
+		opacity: 0;
+	}
+	&.item-enter-active {
+		opacity: 1;
+		transition: opacity 500ms ease-in;
+	}
+	&.item-exit {
+		opacity: 1;
+	}
+	&.item-exit-active {
+		opacity: 0;
+		transition: opacity 500ms ease-in;
+	}
 `;
 
 export default TodoItemStyle;

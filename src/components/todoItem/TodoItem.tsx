@@ -11,7 +11,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
 	const { theme } = useTheme();
 	const { dispatch } = useTodos();
 	return (
-		<TodoItemStyle theme={theme}>
+		<TodoItemStyle theme={theme} className="item">
 			<label className={todo.complete ? 'complete' : undefined}>
 				<input
 					type="checkbox"

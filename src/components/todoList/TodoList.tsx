@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '../../contexts/ThemeContext';
+import { Filter, useTodos } from '../../contexts/TodosContext';
 import TodoItem from '../todoItem/TodoItem';
 import TodoListStyle from './style';
-import { useTheme } from '../../contexts/ThemeContext';
-import { useTodos, Filter } from '../../contexts/TodosContext';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default function TodoList() {
 	const { theme } = useTheme();
@@ -25,9 +26,17 @@ export default function TodoList() {
 
 	return (
 		<TodoListStyle theme={theme}>
-			{filteredTodos.map((todo) => (
-				<TodoItem todo={todo} key={todo.id} />
-			))}
+			<TransitionGroup>
+				{filteredTodos.map((todo) => (
+					<CSSTransition
+						key={todo.id}
+						timeout={500}
+						classNames="item"
+					>
+						<TodoItem todo={todo} key={todo.id} />
+					</CSSTransition>
+				))}
+			</TransitionGroup>
 		</TodoListStyle>
 	);
 }
