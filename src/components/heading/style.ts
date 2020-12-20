@@ -6,6 +6,7 @@ const HeadingStyle = styled.header`
 	justify-content: space-between;
 	h1 {
 		color: #fff;
+		letter-spacing: 10px;
 	}
 	button {
 		all: unset;
