@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Filter, useTodos } from '../../contexts/TodosContext';
 import TodoItem from '../todoItem/TodoItem';
 import TodoListStyle from './style';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default function TodoList() {
 	const { theme } = useTheme();
 	const { todos, filter } = useTodos();
 	const [filteredTodos, setFilteredTodos] = useState<Todo[]>([]);
+	const nodeRef = useRef(null);
 
 	useEffect(() => {
 		if (filter === Filter.All) {
@@ -24,19 +26,52 @@ export default function TodoList() {
 		}
 	}, [filter, todos]);
 
+	const onDragEnd = (result: DropResult) => {
+		const { destination, source } = result;
+		if (!destination) {
+			return;
+		}
+		if (
+			destination.droppableId === source.droppableId &&
+			destination.index === source.index
+		) {
+			return;
+		}
+		const draftArray = [...filteredTodos];
+		const todo = draftArray.splice(source.index, 1)[0];
+		draftArray.splice(destination.index, 0, todo);
+		setFilteredTodos(draftArray);
+	};
+
 	return (
-		<TodoListStyle theme={theme}>
-			<TransitionGroup>
-				{filteredTodos.map((todo) => (
-					<CSSTransition
-						key={todo.id}
-						timeout={500}
-						classNames="item"
+		<DragDropContext onDragEnd={onDragEnd}>
+			<Droppable droppableId={'todo-list'}>
+				{(provided) => (
+					<TodoListStyle
+						theme={theme}
+						ref={provided.innerRef}
+						{...provided.droppableProps}
 					>
-						<TodoItem todo={todo} key={todo.id} />
-					</CSSTransition>
-				))}
-			</TransitionGroup>
-		</TodoListStyle>
+						<TransitionGroup>
+							{filteredTodos.map((todo, index) => (
+								<CSSTransition
+									key={todo.id}
+									timeout={500}
+									classNames="item"
+									nodeRef={nodeRef}
+								>
+									<TodoItem
+										todo={todo}
+										key={todo.id}
+										index={index}
+									/>
+								</CSSTransition>
+							))}
+						</TransitionGroup>
+						{provided.placeholder}
+					</TodoListStyle>
+				)}
+			</Droppable>
+		</DragDropContext>
 	);
 }

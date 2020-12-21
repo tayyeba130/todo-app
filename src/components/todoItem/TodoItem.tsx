@@ -2,36 +2,51 @@ import React from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useTodos } from '../../contexts/TodosContext';
 import TodoItemStyle from './style';
+import { Draggable } from 'react-beautiful-dnd';
 
 interface TodoItemProps {
 	todo: Todo;
+	index: number;
 }
 
-export default function TodoItem({ todo }: TodoItemProps) {
+export default function TodoItem({ todo, index }: TodoItemProps) {
 	const { theme } = useTheme();
 	const { dispatch } = useTodos();
 	return (
-		<TodoItemStyle theme={theme} className="item">
-			<label className={todo.complete ? 'complete' : undefined}>
-				<input
-					type="checkbox"
-					checked={todo.complete}
-					onChange={() =>
-						dispatch({ type: 'toggle', payload: todo.id })
-					}
-				/>
-				{todo.complete ? (
-					<span className="circle">
-						<img
-							src={require('../../images/icon-check.svg').default}
-							alt="completed icon"
+		<Draggable draggableId={todo.id} index={index}>
+			{(provided) => (
+				<TodoItemStyle
+					theme={theme}
+					className="item"
+					{...provided.draggableProps}
+					{...provided.dragHandleProps}
+					ref={provided.innerRef}
+				>
+					<label className={todo.complete ? 'complete' : undefined}>
+						<input
+							type="checkbox"
+							checked={todo.complete}
+							onChange={() =>
+								dispatch({ type: 'toggle', payload: todo.id })
+							}
 						/>
-					</span>
-				) : (
-					<span className="circle not-completed" />
-				)}
-				<span>{todo.text}</span>
-			</label>
-		</TodoItemStyle>
+						{todo.complete ? (
+							<span className="circle">
+								<img
+									src={
+										require('../../images/icon-check.svg')
+											.default
+									}
+									alt="completed icon"
+								/>
+							</span>
+						) : (
+							<span className="circle not-completed" />
+						)}
+						<span>{todo.text}</span>
+					</label>
+				</TodoItemStyle>
+			)}
+		</Draggable>
 	);
 }
