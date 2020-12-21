@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -10,7 +10,6 @@ export default function TodoList() {
 	const { theme } = useTheme();
 	const { todos, filter } = useTodos();
 	const [filteredTodos, setFilteredTodos] = useState<Todo[]>([]);
-	const nodeRef = useRef(null);
 
 	useEffect(() => {
 		if (filter === Filter.All) {
@@ -56,8 +55,7 @@ export default function TodoList() {
 							{filteredTodos.map((todo, index) => (
 								<CSSTransition
 									key={todo.id}
-									timeout={200}
-									// nodeRef={nodeRef}
+									timeout={500}
 									classNames="item"
 								>
 									<TodoItem

@@ -52,6 +52,7 @@ const TodoItemStyle = styled.li`
 				props.theme === Theme.Light
 					? 'var(--light-400)'
 					: 'var(--dark-600)'};
+			transition: border-color 300ms ease-in-out;
 			&:hover {
 				background-image: linear-gradient(
 					to right bottom,
@@ -73,6 +74,7 @@ const TodoItemStyle = styled.li`
 						props.theme === Theme.Light
 							? '#fff'
 							: 'var(--bright-blue-500)'};
+					transition: background 300ms ease-in-out;
 				}
 			}
 		}
@@ -96,14 +98,14 @@ const TodoItemStyle = styled.li`
 	}
 	&.item-enter-active {
 		opacity: 1;
-		transition: opacity 200ms ease-in;
+		transition: opacity 500ms ease-in;
 	}
 	&.item-exit {
 		opacity: 1;
 	}
 	&.item-exit-active {
 		opacity: 0;
-		transition: opacity 200ms ease-in;
+		transition: opacity 500ms ease-in;
 	}
 `;
 
