@@ -1,12 +1,11 @@
 import React, { useReducer, useState } from 'react';
+import styled from 'styled-components/macro';
+import { Theme, useTheme } from '../../contexts/ThemeContext';
 import { Filter, TodosContext } from '../../contexts/TodosContext';
 import AddTodo from '../addTodo/AddTodo';
-import TodoList from '../todoList/TodoList';
 import Filters from '../filters/Filters';
+import TodoList from '../todoList/TodoList';
 import todosReducer from './reducer';
-import styled from 'styled-components/macro';
-import { useTheme } from '../../contexts/ThemeContext';
-import { Theme } from '../../contexts/ThemeContext';
 
 export default function Todos() {
 	const initialState: Todo[] = [];

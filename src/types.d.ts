@@ -6,5 +6,5 @@ type Todo = {
 
 type Action = {
 	type: string;
-	payload: string;
+	payload: any;
 };

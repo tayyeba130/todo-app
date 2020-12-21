@@ -26,6 +26,12 @@ export default function todosReducer(todos: Todo[], action: Action) {
 			let draft = todos.filter((todo) => todo.complete === false);
 			return [...draft];
 		}
+		case 'drag': {
+			let draft = [...todos];
+			const todo = draft.splice(action.payload.source, 1)[0];
+			draft.splice(action.payload.destination, 0, todo);
+			return draft;
+		}
 		default:
 			return todos;
 	}

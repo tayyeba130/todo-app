@@ -6,7 +6,7 @@ import TodoItem from '../todoItem/TodoItem';
 import TodoListStyle from './style';
 
 export default function TodoList() {
-	const { todos, filter } = useTodos();
+	const { todos, filter, dispatch } = useTodos();
 	const [filteredTodos, setFilteredTodos] = useState<Todo[]>([]);
 
 	useEffect(() => {
@@ -24,6 +24,7 @@ export default function TodoList() {
 	}, [filter, todos]);
 
 	const onDragEnd = (result: DropResult) => {
+		console.log(result);
 		const { destination, source } = result;
 		if (!destination) {
 			return;
@@ -34,10 +35,10 @@ export default function TodoList() {
 		) {
 			return;
 		}
-		const draftArray = [...filteredTodos];
-		const todo = draftArray.splice(source.index, 1)[0];
-		draftArray.splice(destination.index, 0, todo);
-		setFilteredTodos(draftArray);
+		dispatch({
+			type: 'drag',
+			payload: { source: source.index, destination: destination.index },
+		});
 	};
 
 	return (
