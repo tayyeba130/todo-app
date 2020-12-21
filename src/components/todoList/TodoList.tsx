@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useTheme } from '../../contexts/ThemeContext';
 import { Filter, useTodos } from '../../contexts/TodosContext';
 import TodoItem from '../todoItem/TodoItem';
 import TodoListStyle from './style';
 
 export default function TodoList() {
-	const { theme } = useTheme();
 	const { todos, filter } = useTodos();
 	const [filteredTodos, setFilteredTodos] = useState<Todo[]>([]);
 
@@ -47,7 +45,6 @@ export default function TodoList() {
 			<Droppable droppableId={'todo-list'}>
 				{(provided) => (
 					<TodoListStyle
-						theme={theme}
 						ref={provided.innerRef}
 						{...provided.droppableProps}
 					>
