@@ -9,14 +9,17 @@ const TodoItemStyle = styled.li`
 	list-style-type: none;
 	display: flex;
 	align-items: center;
-	cursor: pointer;
 	label {
 		color: ${(props) =>
 			props.theme === Theme.Light ? 'var(--light-600)' : '#bebebe'};
 		display: flex;
 		align-items: flex-end;
+		cursor: pointer;
 		input {
 			display: none;
+		}
+		span:last-child {
+			user-select: none;
 		}
 		span.circle {
 			width: 20px;
