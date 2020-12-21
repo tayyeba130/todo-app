@@ -45,6 +45,17 @@ export default function TodoItem({ todo, index }: TodoItemProps) {
 						)}
 						<span>{todo.text}</span>
 					</label>
+					<button
+						className="delete"
+						onClick={() =>
+							dispatch({ type: 'delete', payload: todo.id })
+						}
+					>
+						<img
+							src={require('../../images/icon-cross.svg').default}
+							alt="delete todo"
+						/>
+					</button>
 				</TodoItemStyle>
 			)}
 		</Draggable>

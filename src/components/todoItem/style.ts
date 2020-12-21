@@ -9,9 +9,11 @@ const TodoItemStyle = styled.li`
 	list-style-type: none;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	background: ${(props) =>
 		props.theme === Theme.Light ? '#fff' : 'var(--bright-blue-500)'};
 	transition: background 300ms ease-in-out, border-color 300ms ease-in-out;
+	padding: 0 20px;
 	label {
 		color: ${(props) =>
 			props.theme === Theme.Light ? 'var(--light-600)' : '#bebebe'};
@@ -29,7 +31,7 @@ const TodoItemStyle = styled.li`
 			height: 20px;
 			border-radius: 50%;
 			display: inline-block;
-			margin: 0 20px;
+			margin-right: 20px;
 			cursor: pointer;
 			background: rgb(87, 221, 255);
 			background-image: linear-gradient(
@@ -74,10 +76,14 @@ const TodoItemStyle = styled.li`
 				}
 			}
 		}
+		&.complete {
+			text-decoration: line-through;
+			color: var(--light-500);
+		}
 	}
-	label.complete {
-		text-decoration: line-through;
-		color: var(--light-500);
+	button.delete {
+		all: unset;
+		cursor: pointer;
 	}
 	@media (min-width: 576px) {
 		height: 60px;

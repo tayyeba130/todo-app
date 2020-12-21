@@ -8,7 +8,7 @@ export default function todosReducer(todos: Todo[], action: Action) {
 				{ text: action.payload, complete: false, id: uuid() },
 			];
 		case 'delete':
-			return todos.filter((todo) => todo.id === action.payload);
+			return todos.filter((todo) => todo.id !== action.payload);
 		case 'toggle': {
 			const draft = todos.map((todo) => {
 				if (todo.id === action.payload) {
