@@ -12,9 +12,11 @@ const AddTodo = () => {
 	};
 
 	const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-		if (event.key === 'Enter') {
+		if (event.key === 'Enter' && todo.length > 0) {
 			dispatch({ type: 'add', payload: todo });
 			setTodo('');
+		} else {
+			return;
 		}
 	};
 
