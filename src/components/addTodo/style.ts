@@ -4,6 +4,7 @@ import { Theme } from '../../contexts/ThemeContext';
 const AddTodoStyle = styled.div`
 	background: ${(props) =>
 		props.theme === Theme.Light ? '#fff' : 'var(--bright-blue-500)'};
+	transition: background 300ms ease-in-out;
 	width: 100%;
 	max-width: 325px;
 	height: 50px;
@@ -29,8 +30,7 @@ const AddTodoStyle = styled.div`
 		margin-right: 10px;
 	}
 	input {
-		background: ${(props) =>
-			props.theme === Theme.Light ? '#fff' : '#25283c'};
+		background-color: transparent;
 		font-size: 14px;
 		outline: 0;
 		padding: 0;

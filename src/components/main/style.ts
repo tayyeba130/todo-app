@@ -5,6 +5,7 @@ const MainStyle = styled.div`
 	height: 100vh;
 	background: ${(props) =>
 		props.theme === Theme.Light ? '#FAFAFA' : '#181823'};
+	transition: background 300ms ease-in-out;
 	.content {
 		position: absolute;
 		width: 100%;

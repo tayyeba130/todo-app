@@ -9,6 +9,9 @@ const TodoItemStyle = styled.li`
 	list-style-type: none;
 	display: flex;
 	align-items: center;
+	background: ${(props) =>
+		props.theme === Theme.Light ? '#fff' : 'var(--bright-blue-500)'};
+	transition: background 300ms ease-in-out, border-color 300ms ease-in-out;
 	label {
 		color: ${(props) =>
 			props.theme === Theme.Light ? 'var(--light-600)' : '#bebebe'};

@@ -7,8 +7,9 @@ const FiltersStyle = styled.div`
 	grid-template-columns: auto 1fr;
 	grid-row-gap: 10px;
 	position: relative;
-	background-color: ${(props) =>
+	background: ${(props) =>
 		props.theme === Theme.Light ? '#fff' : 'var(--bright-blue-500)'};
+	transition: background 300ms ease-in-out;
 	color: var(--light-500);
 	@media (min-width: 576px) {
 		grid-template-columns: auto 1fr auto;
@@ -77,6 +78,7 @@ const FiltersStyle = styled.div`
 			props.theme === Theme.Light
 				? 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
 				: 'var(--bright-blue-400) 0px 8px 24px'};
+		transition: box-shadow 300ms ease-in-out;
 	}
 `;
 
