@@ -17,7 +17,6 @@ export default function TodoItem({ todo, index }: TodoItemProps) {
 			{(provided) => (
 				<TodoItemStyle
 					theme={theme}
-					className="item"
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}

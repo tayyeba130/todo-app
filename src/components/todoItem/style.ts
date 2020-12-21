@@ -84,6 +84,9 @@ const TodoItemStyle = styled.li`
 	button.delete {
 		all: unset;
 		cursor: pointer;
+		img {
+			filter: invert(1);
+		}
 	}
 	@media (min-width: 576px) {
 		height: 60px;
@@ -93,14 +96,14 @@ const TodoItemStyle = styled.li`
 	}
 	&.item-enter-active {
 		opacity: 1;
-		transition: opacity 500ms ease-in;
+		transition: opacity 200ms ease-in;
 	}
 	&.item-exit {
 		opacity: 1;
 	}
 	&.item-exit-active {
 		opacity: 0;
-		transition: opacity 500ms ease-in;
+		transition: opacity 200ms ease-in;
 	}
 `;
 

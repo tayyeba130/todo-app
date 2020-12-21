@@ -52,13 +52,13 @@ export default function TodoList() {
 						ref={provided.innerRef}
 						{...provided.droppableProps}
 					>
-						<TransitionGroup>
+						<TransitionGroup className="todo-list">
 							{filteredTodos.map((todo, index) => (
 								<CSSTransition
 									key={todo.id}
-									timeout={500}
+									timeout={200}
+									// nodeRef={nodeRef}
 									classNames="item"
-									nodeRef={nodeRef}
 								>
 									<TodoItem
 										todo={todo}
