@@ -21,3 +21,9 @@ export const TodosContext = createContext<TodosContextType>({
 });
 
 export const useTodos = () => useContext(TodosContext);
+
+export default {
+	TodosContext,
+	useTodos,
+	Filter,
+};
