@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import AddTodoStyle from './style';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useTodos } from '../../contexts/TodosContext';
+import AddTodoStyle from './style';
 
 const AddTodo = () => {
 	const { theme } = useTheme();
