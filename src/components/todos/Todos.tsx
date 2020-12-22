@@ -18,11 +18,9 @@ export default function Todos() {
 			<AddTodo />
 			<TodoList />
 			<Filters />
-			{todos.length > 1 && (
-				<StyledParagraph theme={theme}>
-					Drag and drop to reorder list
-				</StyledParagraph>
-			)}
+			<StyledParagraph theme={theme}>
+				Drag and drop to reorder list
+			</StyledParagraph>
 		</TodosContext.Provider>
 	);
 }
