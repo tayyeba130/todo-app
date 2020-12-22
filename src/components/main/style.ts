@@ -17,12 +17,12 @@ const MainStyle = styled.div`
 		margin-right: auto;
 		top: 5%;
 		@media (min-width: 576px) {
-			top: 10%;
+			top: 17vh;
 			max-width: 540px;
 			padding: 0;
 		}
-		@media (min-width: 730px) {
-			top: 15%;
+		@media (min-width: 1350px) {
+			top: 20vh;
 		}
 	}
 `;
