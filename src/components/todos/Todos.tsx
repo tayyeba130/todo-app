@@ -18,16 +18,18 @@ export default function Todos() {
 			<AddTodo />
 			<TodoList />
 			<Filters />
-			<StyledParagraph theme={theme}>
-				Drag and drop to reorder list
-			</StyledParagraph>
+			{todos.length > 1 && (
+				<StyledParagraph theme={theme}>
+					Drag and drop to reorder list
+				</StyledParagraph>
+			)}
 		</TodosContext.Provider>
 	);
 }
 
 const StyledParagraph = styled.p`
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 60px;
 	font-weight: 300;
 	font-size: 14px;
 	color: ${(props) =>

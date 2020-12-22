@@ -21,6 +21,9 @@ const MainStyle = styled.div`
 			max-width: 540px;
 			padding: 0;
 		}
+		@media (min-width: 730px) {
+			top: 15%;
+		}
 	}
 `;
 

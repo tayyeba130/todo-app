@@ -44,7 +44,7 @@ const FiltersStyle = styled.div`
 		button.selected {
 			color: var(--bright-blue-300);
 		}
-		button:hover {
+		button:hover:not(.selected) {
 			color: ${(props) =>
 				props.theme === Theme.Light
 					? 'var(--bright-blue-500)'
