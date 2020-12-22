@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import styled from 'styled-components/macro';
 import { Theme, useTheme } from '../../contexts/ThemeContext';
-import TodosContext from '../../contexts/TodosContext';
+import { Filter, TodosContext } from '../../contexts/TodosContext';
 import AddTodo from '../addTodo/AddTodo';
 import Filters from '../filters/Filters';
 import TodoList from '../todoList/TodoList';
@@ -10,13 +10,11 @@ import todosReducer from './reducer';
 export default function Todos() {
 	const initialState: Todo[] = [];
 	const [todos, dispatch] = useReducer(todosReducer, initialState);
-	const [filter, setFilter] = useState(TodosContext.Filter.All);
+	const [filter, setFilter] = useState(Filter.All);
 	const { theme } = useTheme();
 
 	return (
-		<TodosContext.TodosContext.Provider
-			value={{ todos, dispatch, filter, setFilter }}
-		>
+		<TodosContext.Provider value={{ todos, dispatch, filter, setFilter }}>
 			<AddTodo />
 			<TodoList />
 			<Filters />
@@ -25,7 +23,7 @@ export default function Todos() {
 					Drag and drop to reorder list
 				</StyledParagraph>
 			)}
-		</TodosContext.TodosContext.Provider>
+		</TodosContext.Provider>
 	);
 }
 
