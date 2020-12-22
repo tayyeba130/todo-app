@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Filter, useTodos } from '../../contexts/TodosContext';
+import { Filter, useTodos } from '../../contexts/DumbName';
 import FiltersStyle from './style';
 import { useTheme } from '../../contexts/ThemeContext';
 

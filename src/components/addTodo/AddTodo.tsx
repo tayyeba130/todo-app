@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
-import { useTodos } from '../../contexts/TodosContext';
+import { useTodos } from '../../contexts/DumbName';
 import AddTodoStyle from './style';
 
 const AddTodo = () => {

@@ -5,7 +5,7 @@ import AddTodo from '../addTodo/AddTodo';
 import Filters from '../filters/Filters';
 import TodoList from '../todoList/TodoList';
 import todosReducer from './reducer';
-import { Filter, TodosContext } from '../../contexts/TodosContext';
+import { Filter, TodosContext } from '../../contexts/DumbName';
 
 export default function Todos() {
 	const initialState: Todo[] = [];

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Filter, useTodos } from '../../contexts/TodosContext';
+import { Filter, useTodos } from '../../contexts/DumbName';
 import TodoItem from '../todoItem/TodoItem';
 import TodoListStyle from './style';
 
