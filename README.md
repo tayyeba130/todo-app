@@ -10,7 +10,7 @@ This is a todo app, where you can:
 -   Toggle light and dark mode
 -   Drag and drop to reorder items on the list
 
-This project is using designs from [frontendmentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+This project is using designs from [frontendmentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
 ### Packages used
 
